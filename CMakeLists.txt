@@ -6,10 +6,10 @@ if(APPLE AND POLICY CMP0042)
 endif()
 
 option(BUILD_TESTING "Build the testing tree." ON)
-option(IRIS_WITH_EIGEN "c++ matrix library. Only disable if you have this already." ON)
+option(IRIS_WITH_EIGEN "c++ matrix library. Only disable if you have this already." OFF)
 option(IRIS_WITH_MOSEK "convex optimization solver; free for academics. Only disable if you have this already." ON)
 option(IRIS_WITH_CDD   "tool for converting representations of polytopes. Only disable if you have this already." ON)
-option(IRIS_WITH_PYBIND11 "binding generator for python based on c++11. Only disable if you have this already." ON)
+option(IRIS_WITH_PYBIND11 "binding generator for python based on c++11. Only disable if you have this already." OFF)
 option(IRIS_WITH_MATLAB "install pure-MATLAB version of IRIS" OFF)
 set(iris_dependencies)
 

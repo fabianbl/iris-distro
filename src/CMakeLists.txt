@@ -15,7 +15,7 @@ find_package(pybind11 REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(Mosek REQUIRED)
-find_package(NumPy REQUIRED)
+# find_package(NumPy REQUIRED)
 
 include_directories(${NUMPY_INCLUDE_DIRS})
 include_directories(${EIGEN3_INCLUDE_DIR})
