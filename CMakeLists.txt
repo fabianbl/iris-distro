@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.8.0)
+project(iris_distro_catkin)
 include(ExternalProject)
+
+find_package(catkin_simple REQUIRED)
+catkin_simple(ALL_DEPS_REQUIRED)
 
 if(APPLE AND POLICY CMP0042)
   cmake_policy(SET CMP0042 NEW)
@@ -94,3 +98,6 @@ ExternalProject_Add_Step(iris_project forceconfigure
  		ALWAYS 1)
 
 install(FILES)
+
+cs_install()
+cs_export()
