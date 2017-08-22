@@ -5,6 +5,16 @@ include(ExternalProject)
 find_package(catkin_simple REQUIRED)
 catkin_simple(ALL_DEPS_REQUIRED)
 
+add_definitions(--std=c++11)
+
+# set(${PROJECT_NAME}_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/cxx)
+# if(NOT IS_DIRECTORY ${${PROJECT_NAME}_LOCAL_INCLUDE_DIR})
+  # set(${PROJECT_NAME}_INCLUDE_DIR)
+# endif()
+# include_directories(${${PROJECT_NAME}_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
+
+set(IRIS_CATKIN_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/src/cxx)
+
 if(APPLE AND POLICY CMP0042)
   cmake_policy(SET CMP0042 NEW)
 endif()
@@ -99,5 +109,13 @@ ExternalProject_Add_Step(iris_project forceconfigure
 
 install(FILES)
 
+# cs_add_library(${PROJECT_NAME} src/cxx/iris.cpp)
+
 cs_install()
+
+install(DIRECTORY ${IRIS_CATKIN_INCLUDE}
+  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.hpp"
+  PATTERN "*.h")
+
 cs_export()
